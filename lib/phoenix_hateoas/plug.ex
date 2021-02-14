@@ -46,7 +46,7 @@ if Code.ensure_loaded?(Plug) do
 
     def get_index(conn) do
       with(
-        {:ok, _slug} <- Map.fetch(conn.params, "slug")
+        {:ok, :show} <- Map.fetch(conn.private, :phoenix_action)
       ) do
         %{
           "rel" => "index",
